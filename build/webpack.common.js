@@ -9,6 +9,12 @@ module.exports = {
         path: path.join(__dirname, '../dist')
     },
     module: {
+        alias: {
+            '@': path.join(__dirname, '../src'),
+            '@components': path.join(__dirname, '../src/components'),
+            '@pages': path.join(__dirname, '../src/pages'),
+            '@assets': path.join(__dirname, '../src/assets'),
+        },
         rules: [
             {
                 test: /\.(j|t)sx?$/,
@@ -37,12 +43,20 @@ module.exports = {
                     //     }
                     // },
                     'postcss-loader',
+                    // 个人喜好 - 可以替换成其他的 css preprocessor loader
+                    // {
+                    //     loader: 'sass-loader',
+                    //     options: {
+                    //         sassOptions: {
+                    //             includePaths: [path.join(__dirname, '../src/styles')]
+                    //         }
+                    //     }
+                    // }
                     {
-                        loader: 'sass-loader',
+                        loader: 'less-loader',
                         options: {
-                            sassOptions: {
-                                includePaths: [path.join(__dirname, '../src/styles')]
-                            }
+                            javascriptEnabled: true,
+                            modifyVars: theme
                         }
                     }
                 ],
