@@ -5,7 +5,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        Hello React
+        这是一个测试，测试CI是否工作
       </div>
     )
   }
