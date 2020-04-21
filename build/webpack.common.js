@@ -9,12 +9,6 @@ module.exports = {
         path: path.join(__dirname, '../dist')
     },
     module: {
-        alias: {
-            '@': path.join(__dirname, '../src'),
-            '@components': path.join(__dirname, '../src/components'),
-            '@pages': path.join(__dirname, '../src/pages'),
-            '@assets': path.join(__dirname, '../src/assets'),
-        },
         rules: [
             {
                 test: /\.(j|t)sx?$/,
@@ -30,7 +24,7 @@ module.exports = {
 
             // CSS Loader - CSS 用的
             {
-                test: /\.scss$/,
+                test: /\.(sc|le)ss$/,
                 include: [path.join(__dirname, '../src')], // 只让loader解析我们src底下自己写的文件
                 use: [
                     'style-loader',
@@ -56,7 +50,7 @@ module.exports = {
                         loader: 'less-loader',
                         options: {
                             javascriptEnabled: true,
-                            modifyVars: theme
+                            modifyVars: require('./theme')
                         }
                     }
                 ],
@@ -110,7 +104,13 @@ module.exports = {
         // }
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        alias: {
+            '@': path.join(__dirname, '../src'),
+            '@components': path.join(__dirname, '../src/components'),
+            '@pages': path.join(__dirname, '../src/pages'),
+            '@assets': path.join(__dirname, '../src/assets'),
+        },
     },
     performance: { // 性能提示，可以提示过大文件
         hints: "warning", // 性能提示开关 false | "error" | "warning"
