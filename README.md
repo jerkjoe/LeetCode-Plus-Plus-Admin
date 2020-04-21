@@ -26,7 +26,7 @@
     
 ## 文章列表、详情
 -   所有文章（getPosts)
-    -   uri: https://leetcode-plus-plus-backend.netlify.com/.netlify/functions/getPosts
+    -   uri: https://leetcode-plus-plus-backend.netlify.com/.netlify/functions/addPost
     -   返回值：404，400，200
     -   返回值里会返回 {
             id: <_id>,
